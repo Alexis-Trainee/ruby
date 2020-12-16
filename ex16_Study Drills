@@ -1,0 +1,20 @@
+4. Descubra por que tivemos que passar um 'w' como um parâmetro extra para abrir. Dica: o open tenta ser seguro fazendo com que você diga explicitamente que deseja escrever um arquivo.
+
+Quando passamos 'w' como um parâmetro extra para abrir, estamos dizendo ao Ruby que queremos abrir o arquivo no modo Write Only.
+
+5. Se você abrir o arquivo com o modo 'w', você realmente precisa do target.truncate ()? Leia a documentação da função de abertura do Ruby e veja se isso é verdade.
+
+Não, não precisamos de target.truncate para o modo 'w'. Este modo trunca automaticamente o arquivo existente para comprimento zero ou cria um novo arquivo para gravação. Descubra mais aqui .
+
+Resumo
+Este exercício me mostrou como escrever arquivos em Ruby. Ele se baseia em lições anteriores, que abordaram como ler arquivos.
+
+O método write usa um parâmetro de uma string que queremos escrever no arquivo.
+
+Neste pequeno programa, o usuário insere o nome do arquivo como um ARGV. Em seguida, usamos o comando open no nome do arquivo.
+
+O 'w' que é passado para abrir como um parâmetro extra diz ao Ruby que queremos abrir o arquivo no modo Write Only. O modo 'w' sempre: 1) trunca o conteúdo do arquivo ou 2) cria um novo arquivo para gravação se o nome do arquivo não existir.
+
+Depois de usar open no nome do arquivo e dizer ao Ruby que queremos o modo Write Only com 'w', este programa tem a entrada do usuário em três strings separadas. Depois disso, o método write é usado para gravar essas strings no próprio arquivo .txt.
+
+Ao inserir strings em uma única linha de código, parece que precisamos usar o # {} ativador de formato para variáveis. No entanto, strings atribuídas a variáveis ​​podem ser usadas sem ativadores de formato ou aspas duplas, desde que não insira mais de um na mesma linha. (Eu anotei este ponto para que possa verificá-lo mais tarde, porque não o entendo totalmente.)
