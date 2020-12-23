@@ -1,0 +1,9 @@
+Exercício 15: Lendo Arquivos
+Você sabe como obter a entrada de um usuário com gets.chomp ou ARGV . Agora você aprenderá a ler um arquivo. 
+ Você pode ter que brincar com este exercício ao máximo para entender o que está acontecendo,
+ então faça o exercício com cuidado e lembre-se de suas verificações.
+ Trabalhar com arquivos é uma maneira fácil de apagar seu trabalho se você não tomar cuidado.
+
+Este exercício envolve escrever dois arquivos. Um é o arquivo ex15.rb usual que você executará, mas o outro é denominado ex15_sample.txt .
+Este segundo arquivo não é um script, mas um arquivo de texto simples que leremos em nosso script.
+
