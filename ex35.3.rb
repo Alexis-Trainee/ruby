@@ -1,22 +1,26 @@
 def gold_room
-  puts "Esta é uma sala cheia de ouro quanto vc pega?"
+  puts "Esta é uma sala cheia de ouro quanto você pega?"
   choice = $stdin.gets.chomp
-
   print "> "
 
   if choice.to_i.to_s == choice
     quanto_pegou = choice.to_i
-
+    typed = false
   else
     puts "Ei aprenda a digitar um número!"
+    gold_room
   end
 
-  if quanto_pegou <= 50
-    puts "Você não tem ganância"
+
+  if quanto_pegou < 500
+    puts "Você perdeu a chance de ficar rico(a) mas, continua vivo(a) parabém!!!"
     exit(0)
 
+  elsif quanto_pegou >= 1000
+    puts "Você retirou ouro demais e desparou a armadilha."
+    dead("A porta da sala dourada se fechou e você ficou preso nela para sempre!!!!!")
   else 
-    puts "Você é muito ganâncioso"
+    puts "Você é muito ganâncioso(a), continua vivo(a) e agora rico(a) parabém!!!!"
     exit(0)
 
   end
@@ -44,6 +48,13 @@ def animal_feroz
       puts "A porta está livre o que você faz?"
       animal_moved=true
 
+      puts "Abre a porta?"
+      puts "Volta?"
+      puts "Fica onde está?"
+
+    elsif choice == "volto" || choice == "fico onde estou"
+      dead("Hooo não os esqueletos voltaram e pegaram vc destraido você ja muito cansado(a) você não resistiu a batalha e foi morto(a).")
+
     elsif choice == "abro a porta"
       gold_room
 
@@ -57,26 +68,33 @@ def bridge
   puts "Você está em uma ponte sobre um rio violento e ela está prestes a quebrar."
   puts "A sua frente tem um grupo de esqueletos querreiros muito maus que querem te pegar o que você faz?"
   puts "Volta"
-  puts "fica parado na ponte"
+  puts "fica onde está"
   puts "segue em frente"
 
-  print "> " 
-  choice= $stdin.gets.chomp
+  player_move = false
 
-  if choice == "volto" || "fico parado na ponte"
-    dead("Você foi covarde a ponte quebrou e você cai no rio cheio de crocodilos")
+  while true
+    print "> " 
+    choice= $stdin.gets.chomp
 
-  elsif choice =="sigo em frente"
-    puts "Você se depara com o grupo de esqueletos e luta bravamente derrotando todos um a um."
-    puts "Você venceu a difícil luta e seque em frente."
-    puts "Você encontra uma porta aberta e entra nela."
+    if choice == "volto" || choice == "fico onde estou" 
+      dead("Você foi covarde a ponte quebrou e você cai no rio cheio de crocodilos famintos")
 
-    gold_room
+    elsif choice =="sigo em frente" && !player_move
+      puts "Você se depara com o grupo de esqueletos e luta bravamente derrotando todos um a um."
+      puts "Você venceu a difícil luta e segue em frente."
+      puts "Você encontra uma porta aberta e entra nela."
+      player_move = true
+      gold_room
+
+    else
+      puts "Não sei o que isso significa!"
+    end
   end
 end
 
 def dead(why)
-  puts why, " Bom trabalho!"
+  puts why, " Você perdeu!!!"
   exit(0)
 end
 
@@ -91,8 +109,13 @@ def start
 
   elsif choice == "esquerda"
     bridge
+
+  else 
+    puts "!!!ATENÇÃO é pra escolher direita ou erquerda ATENÇÃO!!!"
+    start
   end
 
 end
 
 start
+
