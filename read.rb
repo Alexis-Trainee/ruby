@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
 @doc = Nokogiri::HTML(URI.open("http://www.ibiblio.org/xml/examples/shakespeare/macbeth.xml"))
-all = @doc.xpath("//persona")
+  all_speech = @doc.xpath("//speech")
 
-puts all
